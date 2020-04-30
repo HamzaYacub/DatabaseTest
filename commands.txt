@@ -1,30 +1,29 @@
-1.
-2.
-3.
-4.
-5.
-6.
-7.
-8.
-9.
-10.
-11.
-12.
-13.
-14.
-15.
-16.
-17.
-18.
-19.
-20.
-21.
-22.
-23.
-24.
-25.
-26.
-27.
-28.
-29.
-30.
+1.  SELECT * FROM actor;
+2.  SELECT * FROM actor WHERE first_name='John';
+3.  SELECT * FROM actor WHERE last_name='Neeson';
+4.  SELECT * FROM actor WHERE mod(actor_id, 10) = 0;
+5.  SELECT description FROM film WHERE film_id=100;
+6.  SELECT title FROM film WHERE rating='R';
+7.  SELECT title FROM film WHERE rating!='R';
+8.  SELECT * FROM film ORDER BY length DESC LIMIT 10;
+9.  SELECT title FROM film ORDER BY length DESC LIMIT 10;
+10. SELECT * FROM film WHERE special_features LIKE '%Deleted Scenes%';
+11. SELECT * FROM actor GROUP BY last_name HAVING COUNT(*)=1;
+12. SELECT * FROM actor GROUP BY last_name HAVING COUNT(*)>1;
+13. SELECT a.first_name, a.last_name, COUNT(fa.actor_id) AS actor_films FROM actor a INNER JOIN film_actor fa ON a.actor_id = fa.actor_id GROUP BY fa.actor_id ORDER BY actor_films DESC LIMIT 1;
+14. Empty set in store
+15. Empty set in store
+16. SELECT AVG(length) AS avg_runtime FROM film;
+17. SELECT c.name, AVG(length) AS avg_runtime FROM film f JOIN film_category USING(film_id) JOIN category c USING(category_id) GROUP BY c.name ORDER BY avg_runtime DESC;
+18. 
+19. SELECT title, MAX(length) AS runtime FROM film GROUP BY title ORDER by runtime DESC LIMIT 15;
+20. SELECT COUNT(title) AS numOfFilms from film WHERE release_year=2010;
+21. Empty set in store
+22. Empty set in staff
+23. SELECT a.first_name, a.last_name, COUNT(fa.actor_id) AS actor_films FROM actor a INNER JOIN film_actor fa ON a.actor_id = fa.actor_id WHERE first_name='Fred' AND last_name='Costner' GROUP BY fa.actor_id ORDER BY actor_films DESC;
+24. Empty set in store
+26. SELECT first_name, last_name FROM actor WHERE last_name LIKE '%son%' ORDER BY first_name;
+27. SELECT c.name AS category, COUNT(film_id) AS numberOFFilms FROM film f JOIN film_category USING(film_id) JOIN category c USING(category_id) GROUP BY c.name ORDER BY numberOfFilms DESC;
+28. SELECT a.first_name, a.last_name, COUNT(fa.actor_id) AS actor_films FROM actor a INNER JOIN film_actor fa ON a.actor_id = fa.actor_id GROUP BY fa.actor_id ORDER BY actor_films DESC;
+29. SELECT a.first_name, a.last_name, COUNT(fa.actor_id) AS actor_films FROM actor a INNER JOIN film_actor fa ON a.actor_id = fa.actor_id GROUP BY fa.actor_id ORDER BY actor_films DESC LIMIT 1;
+ 
